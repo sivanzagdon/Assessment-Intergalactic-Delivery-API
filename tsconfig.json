@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist", // כל קבצי הקומפילציה יישמרו בתיקיית dist
+    "rootDir": "./src" // קבצי ה- TypeScript שלך צריכים להיות בתוך תיקיית src
+  },
+  "include": ["src/**/*.ts"], // כל הקבצים ב-src/ עם סיומת .ts
+  "exclude": ["node_modules"] // לא לכלול את תיקיית node_modules בקומפילציה
+}

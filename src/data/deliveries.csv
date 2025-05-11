@@ -1,0 +1,11 @@
+id,spaceshipId,destination,cargoWeight,status
+del-001,ss-01,Mars,12000,DELIVERED
+del-004,ss-01,Saturn,18000,DELIVERED
+del-002,ss-02,Venus,8000,DELIVERED
+del-005,ss-02,Mars,14000,ACTIVE
+del-003,ss-03,Jupiter,25000,DELIVERED
+
+
+
+
+del-4,ss-01,jjj,12000,ACTIVE

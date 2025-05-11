@@ -1,0 +1,5 @@
+﻿name,distance,hasAtmosphere,isHazardous
+Mars,225,TRUE,FALSE
+Venus,261,TRUE,TRUE
+Jupiter,588,FALSE,TRUE
+Saturn,1200,FALSE,FALSE
