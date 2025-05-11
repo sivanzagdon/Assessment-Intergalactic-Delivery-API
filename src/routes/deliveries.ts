@@ -21,7 +21,7 @@ router.post('/', async (req: Request, res: Response) => {
         error.message ===
         'There is already an active delivery for this spaceship'
       ) {
-        res.status(500).json({
+        res.status(409).json({
           message: error.message,
         })
       } else if (

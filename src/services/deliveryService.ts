@@ -68,6 +68,11 @@ class DeliveryService {
   createNewDelivery = async (
     request: NewDeliveryRequest
   ): Promise<Delivery> => {
+    const activeDelivery = await this.getActiveDelivery(request.spaceshipId)
+    if (activeDelivery) {
+      throw new Error('There is already an active delivery for this spaceship')
+    }
+
     await this.validateCargoForSpaceship(
       request.cargoWeight,
       request.spaceshipId
@@ -77,12 +82,8 @@ class DeliveryService {
       throw new Error('Invalid destination')
     }
 
-    const activeDelivery = await this.getActiveDelivery(request.spaceshipId)
-    if (activeDelivery) {
-      throw new Error('There is already an active delivery for this spaceship')
-    }
     const newDelivery: Delivery = {
-      id: `del-${deliveriesMap.size + 1}`,
+      id: `del-${this.deliveryRepo.getSize() + 1}`,
       spaceshipId: request.spaceshipId,
       destination: request.destination,
       cargoWeight: request.cargoWeight,

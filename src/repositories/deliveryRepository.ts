@@ -4,6 +4,14 @@ import { Delivery } from '../interfaces/IDelivery'
 import { savingDeliveryInCSV } from '../helpers/writers/writeDeliveryInCSV'
 
 class InMemoryDeliveryRepository implements DeliveryRepository {
+  getSize(): number {
+    let size = 0
+    deliveriesMap.forEach((deliveriesList) => {
+      size += deliveriesList.length
+    })
+    return size
+  }
+
   async getBySpaceshipId(spaceshipId: string): Promise<Delivery[]> {
     return deliveriesMap.get(spaceshipId) || []
   }
