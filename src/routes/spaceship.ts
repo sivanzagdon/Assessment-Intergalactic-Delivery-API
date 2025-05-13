@@ -3,7 +3,7 @@ import { SpaceshipService } from '../services/spaceshipService'
 import { InMemorySpaceshipRepository } from '../repositories/spaceshipRepository'
 import { InMemoryDeliveryRepository } from '../repositories/deliveryRepository'
 import { DeliveryService } from '../services/deliveryService'
-import { InMemoryDestinatiomRepository } from '../repositories/DestinationRepsitory'
+import { InMemoryDestinatiomRepository } from '../repositories/destinationRepository'
 
 const router = Router()
 const spaceshipService = new SpaceshipService(

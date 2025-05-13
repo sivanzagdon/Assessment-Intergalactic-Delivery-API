@@ -3,7 +3,7 @@ import { DeliveryService } from '../services/deliveryService'
 import { InMemoryDeliveryRepository } from '../repositories/deliveryRepository'
 import { NewDeliveryRequest } from '../interfaces/IDelivery'
 import { InMemorySpaceshipRepository } from '../repositories/spaceshipRepository'
-import { InMemoryDestinatiomRepository } from '../repositories/DestinationRepsitory'
+import { InMemoryDestinatiomRepository } from '../repositories/destinationRepository'
 
 const router = express.Router()
 const deliveryService = new DeliveryService(
