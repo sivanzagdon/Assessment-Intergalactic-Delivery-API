@@ -10,21 +10,14 @@ class SpaceshipService {
 
   getSpaceshipById = async (id: string): Promise<Spaceship | null> => {
     const spaceship = await this.spaceshipRepo.getById(id)
-    if (!spaceship) {
-      throw new Error('Spaceship not found!')
-    }
     return spaceship
   }
 
-  getEfficiencyScore = async (spaceshipId: string): Promise<number> => {
-    const spaceship = await this.spaceshipRepo.getById(spaceshipId)
-    const activeDelivery = await this.deliveryService.getActiveDelivery(
-      spaceshipId
-    )
-    if (spaceship && activeDelivery) {
-      return activeDelivery.cargoWeight / spaceship.maxCargo
-    }
-    return 0
+  getEfficiencyScore = async (
+    cargoWeight: number,
+    maxCargo: number
+  ): Promise<number> => {
+    return cargoWeight / maxCargo
   }
 
   getSpaceshipInfo = async (
@@ -37,9 +30,14 @@ class SpaceshipService {
     const activeDelivery = await this.deliveryService.getActiveDelivery(
       spaceshipId
     )
-    const efficiencyScore = await this.getEfficiencyScore(spaceshipId)
+    const efficiencyScore = activeDelivery
+      ? await this.getEfficiencyScore(
+          activeDelivery?.cargoWeight,
+          spaceship.maxCargo
+        )
+      : 0
 
-    return {
+    const spaceshipInfoResponse: SpaceshipInfoResponse = {
       id: spaceship.id,
       name: spaceship.name,
       maxCargo: spaceship.maxCargo,
@@ -47,6 +45,7 @@ class SpaceshipService {
       efficiencyScore: efficiencyScore,
       warnings: efficiencyScore > 0.9 ? ['Overload risk'] : [],
     }
+    return spaceshipInfoResponse
   }
 }
 

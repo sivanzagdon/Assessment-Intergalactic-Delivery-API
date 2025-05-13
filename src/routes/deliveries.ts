@@ -3,11 +3,13 @@ import { DeliveryService } from '../services/deliveryService'
 import { InMemoryDeliveryRepository } from '../repositories/deliveryRepository'
 import { NewDeliveryRequest } from '../interfaces/IDelivery'
 import { InMemorySpaceshipRepository } from '../repositories/spaceshipRepository'
+import { InMemoryDestinatiomRepository } from '../repositories/DestinationRepsitory'
 
 const router = express.Router()
 const deliveryService = new DeliveryService(
   new InMemoryDeliveryRepository(),
-  new InMemorySpaceshipRepository()
+  new InMemorySpaceshipRepository(),
+  new InMemoryDestinatiomRepository()
 )
 
 router.post('/', async (req: Request, res: Response) => {
