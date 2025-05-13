@@ -2,7 +2,7 @@ import express, { Request, Response } from 'express'
 import spaceshipRoutes from './routes/spaceship'
 import deliveryRoutes from './routes/deliveries'
 
-import { loadDataToMaps } from './services/dataStore'
+import { loadDataToMaps } from './services/dataStoreService'
 
 const app = express()
 app.use(express.json())

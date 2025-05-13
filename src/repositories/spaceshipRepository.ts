@@ -1,6 +1,6 @@
 import { Spaceship } from '../interfaces/ISpaceship'
 import { SpaceshipRepository } from '../interfaces/ISpaceshipRepository'
-import { spaceshipsMap } from '../services/dataStore'
+import { spaceshipsMap } from '../services/dataStoreService'
 
 class InMemorySpaceshipRepository implements SpaceshipRepository {
   getSize(): number {

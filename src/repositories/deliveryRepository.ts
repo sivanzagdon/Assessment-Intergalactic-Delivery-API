@@ -1,5 +1,5 @@
 import { DeliveryRepository } from '../interfaces/IDeliveryRepository'
-import { deliveriesMap } from '../services/dataStore'
+import { deliveriesMap } from '../services/dataStoreService'
 import { Delivery } from '../interfaces/IDelivery'
 import { savingDeliveryInCSV } from '../helpers/writers/writeDeliveryInCSV'
 
